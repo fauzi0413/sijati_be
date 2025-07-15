@@ -21,6 +21,8 @@ model Chat_history {
   bot_response String
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
+
+  @@map("chat_history")
 }
 
 model Faq_manual {
@@ -32,4 +34,6 @@ model Faq_manual {
   user_id     String
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
+
+  @@map("faq_manual")
 }
