@@ -4,6 +4,8 @@ const app = express();
 const cors = require('cors');
 
 dotenv.config();
+app.use(express.json()); // ⬅️ ini WAJIB untuk parsing body JSON
+app.use(cors()); // ⬅️ ini WAJIB untuk mengizinkan CORS
 
 const port = process.env.PORT;
 

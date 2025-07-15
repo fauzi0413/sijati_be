@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Chat_history {
+model chat_history {
   chat_id     String   @id @default(uuid())
   user_id     String
   user_message String
@@ -25,7 +25,7 @@ model Chat_history {
   @@map("chat_history")
 }
 
-model Faq_manual {
+model faq_manual {
   faq_id      String   @id @default(uuid())
   question    String
   answer      String
