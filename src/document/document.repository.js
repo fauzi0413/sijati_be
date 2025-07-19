@@ -18,13 +18,7 @@ const findDocumentById = async (document_id) => {
 
 const insertDocument = async (newDocumentData) => {
     const document = await prisma.document.create({
-        data: {
-            title: newDocumentData.title,
-            type: newDocumentData.type,
-            chunks: newDocumentData.chunks,
-            embedding: newDocumentData.embedding,
-            uploaded_by: newDocumentData.uploaded_by
-        },
+        data: newDocumentData,
     });
 
     return document;

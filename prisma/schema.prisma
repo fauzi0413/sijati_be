@@ -15,6 +15,7 @@ datasource db {
 
 model chat_history {
   chat_id     String   @id @default(uuid())
+  session_id     String
   user_id     String
   user_message String
   retrieved_context String
@@ -39,7 +40,7 @@ model faq_manual {
 }
 
 model User {
-  user_id     String @id @default(uuid()) @db.Char(36)
+  user_id     String @id @default(uuid())
   username    String
   email       String
   password    String
@@ -51,7 +52,7 @@ model User {
 
 model LoginLog {
   log_id          String @id @default(uuid()) @db.Char(36)
-  user_id         String @db.VarChar(36)
+  user_id         String
   login_time      DateTime @default(now())
   ip_address      String
   user_agent      String
@@ -66,8 +67,9 @@ model Document {
   title           String
   type            String
   chunks          String @db.VarChar(100)
-  embedding       String
-  uploaded_by     String @db.Char(36)
+  embedding       String @db.Text
+  file_name        String @db.Text
+  user_id         String
   created_at      DateTime @default(now())
   updated_at      DateTime @updatedAt
 }
